@@ -25,7 +25,7 @@ Graph (structure) augmentation aims to perturb the graph structure through heuri
 
 
 
-## Dependenciesc
+## Dependencies
 
 * numpy==1.19.2
 * scipy==1.3.1

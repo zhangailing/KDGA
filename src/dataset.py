@@ -9,10 +9,10 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # # Load homophily and heterophily graph datasets
 def load_data(dataset):
 
-    adj = pickle.load(open(f'../data/graphs/{dataset}_adj.pkl', 'rb'))
-    features = pickle.load(open(f'../data/graphs/{dataset}_features.pkl', 'rb'))
-    labels = pickle.load(open(f'../data/graphs/{dataset}_labels.pkl', 'rb'))
-    data_mask = pickle.load(open(f'../data/graphs/{dataset}_tvt_nids.pkl', 'rb'))
+    adj = pickle.load(open(f'./data/graphs/{dataset}_adj.pkl', 'rb'))
+    features = pickle.load(open(f'./data/graphs/{dataset}_features.pkl', 'rb'))
+    labels = pickle.load(open(f'./data/graphs/{dataset}_labels.pkl', 'rb'))
+    data_mask = pickle.load(open(f'./data/graphs/{dataset}_tvt_nids.pkl', 'rb'))
 
     if sp.issparse(features):
         features = torch.FloatTensor(features.toarray())

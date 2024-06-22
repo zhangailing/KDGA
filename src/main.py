@@ -46,6 +46,7 @@ def pretrain_Classifier(model):
     test_best = 0
     test_val = 0
     val_best = 0
+    loss = None
 
     for epoch in range(param['nc_epochs']):
 
@@ -67,9 +68,12 @@ def pretrain_Classifier(model):
             logits = model.teacher_net(adj_norm, features)
             loss = nn.CrossEntropyLoss()(logits[train_mask], labels[train_mask])
             s_loss = t_loss = loss
+        else:
+            raise ValueError("Invalid loss_mode")
 
         optimizer.zero_grad()
-        loss.backward()
+        if loss is not None:
+            loss.backward()
         optimizer.step()
         
         model.eval()
